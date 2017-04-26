@@ -116,9 +116,6 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/YankRing.vim'
 " アンドゥ
 NeoBundle "sjl/gundo.vim" 
-" 癒やし系ニャンもどき
-" 以下に別途設定あり
-NeoBundle 'drillbits/nyan-modoki.vim'
 
 call neobundle#end()
  
@@ -132,11 +129,6 @@ NeoBundleCheck
 "#########################
 " End Neobundle Settings.
 "#########################
-" ニャンもどき設定
-set laststatus=2
-set statusline=%F%m%r%h%w[%{&ff}]%=%{g:NyanModoki()}(%l,%c)[%P]
-let g:nyan_modoki_select_cat_face_number = 2
-let g:nayn_modoki_animation_enabled= 1
 
 "############################
 "###補完関連デフォルト設定###
