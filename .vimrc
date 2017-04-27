@@ -84,6 +84,18 @@ endfunction
 "###########################
 " bundleで管理するディレクトリを指定
 set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+" bundleがインストールされていなければインストール
+if has('vim_starting')
+  if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+    echo "install neobundle..."
+    :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+  endif
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
  
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -231,3 +243,16 @@ endif
 
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^.\t]\.\w*'
 " jedi settings end
+
+" 未取得のbundleがあれば取得する
+" .vimrcの最後に記述する
+if(!empty(neobundle#get_not_installed_bundle_names()))
+  echomsg 'Not installed bundles: '
+    \ string(neobundle#get_not_installed_bundle_names())
+  if confirm('Install bundles now?', "yes\nNo", 2) == 1
+    " vimrc を再度読み込み、インストールした Bundle を有効化
+    " vimrc は必ず再読み込み可能な形式で記述すること
+    NeoBundleInstall
+    source ~/.vimrc
+  endif
+end
