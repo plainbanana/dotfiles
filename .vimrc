@@ -3,7 +3,7 @@ set ruler "ルーラーの表示
 set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
-colorscheme molokai "カラースキーマを設定
+" colorscheme molokai "カラースキーマを設定
 syntax on
 set tabstop=4 "インデントをスペース4つ分に設定
 "set autoindent "オートインデント
@@ -82,9 +82,6 @@ endfunction
 "###########################
 " Start Neobundle Settings.
 "###########################
-" bundleで管理するディレクトリを指定
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-
 " bundleがインストールされていなければインストール
 if has('vim_starting')
   if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
@@ -93,6 +90,9 @@ if has('vim_starting')
   endif
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
+
+" bundleで管理するディレクトリを指定
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -104,7 +104,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " neobundle自体をneobundleで管理
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" この辺りにロードするプラグインを記入しようぜ！！
+" この辺りにロードするプラグインを記入
+" molokai設定
+NeoBundle 'tomasr/molokai'
 " NERDTreeを設定
 NeoBundle 'scrooloose/nerdtree'
 " 鉤括弧自動で2個入力
