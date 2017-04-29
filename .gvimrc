@@ -1,5 +1,7 @@
 "Display
-colorscheme molokai
+syntax enable
+set background=dark
+colorscheme solarized 
 
 " 縦幅　デフォルトは24
 set lines=40
