@@ -3,11 +3,10 @@ set ruler "ルーラーの表示
 set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
-" colorscheme molokai "カラースキーマを設定
 syntax on
 set tabstop=4 "インデントをスペース4つ分に設定
-"set autoindent "オートインデント
-set statusline+=%r "読み込み専用かどうか表示
+set autoindent "オートインデント
+"set statusline+=%r "読み込み専用かどうか表示
 set laststatus=2
 set statusline+=[WC=%{exists('*WordCount')?WordCount():[]}] " 現在のファイルの文字数をカウント
 set statusline+=[%p%%] " 現在行が全体行の何%目か表示
@@ -16,9 +15,6 @@ set background=dark
 "highlight Normal guibg=none  ctermbg=none "vimに透過を有効
 "highlight NonText ctermfg=250 ctermbg=none
 
-"カラースキーマを設定
-let g:molokai_original = 1
-let g:rehash256 = 1
 
 " タブ文字の代わりにスペース2個を使う場合の設定。
 " この場合、'tabstop'はデフォルトの8から変えない。
@@ -40,11 +36,11 @@ set wildmenu wildmode=list:full "コマンド補完
 cmap w!! w !sudo tee > /dev/null %
 
 "入力モード時、ステータスラインのカラーを変更
-augroup InsertHook
-autocmd!
-autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
-augroup END
+"augroup InsertHook
+"autocmd!
+"autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+"autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+"augroup END
 
 "自動文字数カウント
 augroup WordCount
@@ -107,6 +103,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " この辺りにロードするプラグインを記入
 " molokai設定
 NeoBundle 'tomasr/molokai'
+" solarlized
+NeoBundle 'altercation/vim-colors-solarized'
 " NERDTreeを設定
 NeoBundle 'scrooloose/nerdtree'
 " 鉤括弧自動で2個入力
@@ -121,16 +119,18 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle "yegappan/mru"
 " Phython構文解析
 NeoBundle "davidhalter/jedi-vim"
-" タブ補完最強伝説
+" タブ補完
 NeoBundle "Shougo/neocomplete.vim"
 " インデントを見やすく
 NeoBundle "nathanaelkane/vim-indent-guides"
-" テキスト編集三種の神器
+" テキスト編集
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/YankRing.vim'
 " アンドゥ
-NeoBundle "sjl/gundo.vim" 
+NeoBundle "sjl/gundo.vim"
+" ステータスラインを綺麗に
+NeoBundle 'itchyny/lightline.vim'
 
 call neobundle#end()
  
@@ -225,7 +225,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " For perlomni.vim setting.
@@ -247,6 +247,30 @@ endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^.\t]\.\w*'
 " jedi settings end
 
+" molokai設定
+" colorscheme molokai
+"カラースキーマを設定
+"let g:molokai_original = 1
+"let g:rehash256 = 1
+"solalized設定
+syntax enable
+set background=dark
+colorscheme solarized
+" NERDTreeの初期画面設定
+let g:NERDTreeShowBookmarks=1
+autocmd vimenter * NERDTree
+" ファイル名が指定されて起動したときはNerdTreeを表示しない
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"x":""}',
+      \   'char_counter' : '%' 
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
 " 未取得のbundleがあれば取得する
 " .vimrcの最後に記述する
 if(!empty(neobundle#get_not_installed_bundle_names()))
