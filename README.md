@@ -4,3 +4,5 @@ my .vimrc file
 ## Windows
 ```mkdir -p ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+```
+また、設定ファイルはC:\Users\nameに置く
