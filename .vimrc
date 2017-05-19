@@ -258,9 +258,10 @@ set background=dark
 colorscheme solarized
 " NERDTreeの初期画面設定
 let g:NERDTreeShowBookmarks=1
+autocmd vimenter * NERDTree
 " ファイル名が指定されて起動したときはNerdTreeを表示しない
 autocmd StdinReadPre * let s:std_in=1
-autocmd vimenter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'component': {
