@@ -1,4 +1,4 @@
-# my-vim-setting
+# dotfiles
 my .vimrc file
 ```Neobundle``` のために```Windows```用のバイナリはKaoriyaさんのバイナリを使用すること
 ## Windows
