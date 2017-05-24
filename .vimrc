@@ -12,9 +12,6 @@ set statusline+=[WC=%{exists('*WordCount')?WordCount():[]}] " 現在のファイ
 set statusline+=[%p%%] " 現在行が全体行の何%目か表示
 
 set background=dark
-"highlight Normal guibg=none  ctermbg=none "vimに透過を有効
-"highlight NonText ctermfg=250 ctermbg=none
-
 
 " タブ文字の代わりにスペース2個を使う場合の設定。
 " この場合、'tabstop'はデフォルトの8から変えない。
