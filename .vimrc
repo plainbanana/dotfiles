@@ -105,6 +105,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'tomasr/molokai'
 " solarlized
 NeoBundle 'altercation/vim-colors-solarized'
+" gruvbox
+NeoBundle 'morhetz/gruvbox'
 " NERDTreeを設定
 NeoBundle 'scrooloose/nerdtree'
 " 鉤括弧自動で2個入力
@@ -252,7 +254,9 @@ let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^.\t]\.\w*'
 "カラースキーマを設定
 "let g:molokai_original = 1
 "let g:rehash256 = 1
-"solalized設定
+" gruvbox設定
+colorscheme gruvbox
+" solalized設定
 syntax enable
 set background=dark
 colorscheme solarized
