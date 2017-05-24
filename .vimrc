@@ -32,12 +32,8 @@ set wildmenu wildmode=list:full "コマンド補完
 "   （sudoが使える環境限定）          #####
 cmap w!! w !sudo tee > /dev/null %
 
-"入力モード時、ステータスラインのカラーを変更
-"augroup InsertHook
-"autocmd!
-"autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-"autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
-"augroup END
+"カーソルラインをハイライト表示
+set cursorline
 
 "自動文字数カウント
 augroup WordCount
