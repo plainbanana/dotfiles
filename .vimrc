@@ -126,6 +126,14 @@ NeoBundle 'vim-scripts/YankRing.vim'
 NeoBundle "sjl/gundo.vim"
 " ステータスラインを綺麗に
 NeoBundle 'itchyny/lightline.vim'
+" ALEで非同期構文チェック
+NeoBundle 'w0rp/ale'
+" 絵文字
+NeoBundle 'junegunn/vim-emoji'
+NeoBundle 'mattn/emoji-vim'
+" Github補完
+NeoBundle 'rhysd/github-complete.vim'
+
 
 call neobundle#end()
  
@@ -253,6 +261,8 @@ colorscheme gruvbox
 syntax enable
 set background=dark
 colorscheme solarized
+" インデント可視化
+let g:indent_guides_enable_on_vim_startup = 1
 " NERDTreeの初期画面設定
 let g:NERDTreeShowBookmarks=1
 " autocmd vimenter * NERDTree
