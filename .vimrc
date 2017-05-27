@@ -133,6 +133,8 @@ NeoBundle 'junegunn/vim-emoji'
 NeoBundle 'mattn/emoji-vim'
 " Github補完
 NeoBundle 'rhysd/github-complete.vim'
+"  ESKKIME
+NeoBundle 'tyru/eskk.vim'
 
 
 call neobundle#end()
@@ -260,6 +262,14 @@ colorscheme gruvbox
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
+" ESKK設定
+let g:eskk#large_dictionary = {
+  \ 'path': "~/.eskk/SKK-JISYO.L",
+  \ 'sorted': 1,
+  \ 'encoding': 'euc-jp',
+  \}
+let g:eskk#enable_completion = 1
+let g:eskk#egg_like_newline = 1
 " NERDTreeの初期画面設定
 let g:NERDTreeShowBookmarks=1
 " autocmd vimenter * NERDTree
