@@ -109,7 +109,7 @@ NeoBundle 'mattn/emmet-vim'
 " ちょっとしたコード偏を書いて実行して確認
 NeoBundle 'thinca/vim-quickrun'
 " シンタックスチェック系
-NeoBundle 'scrooloose/syntastic'
+"NeoBundle 'scrooloose/syntastic'
 " 履歴記憶
 NeoBundle "yegappan/mru"
 " Phython構文解析
