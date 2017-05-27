@@ -252,10 +252,10 @@ let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^.\t]\.\w*'
 
 " gruvbox設定
 colorscheme gruvbox
-" solalized設定
-syntax enable
-set background=dark
-colorscheme solarized
+"" solalized設定
+"syntax enable
+"set background=dark
+"colorscheme solarized
 " インデント可視化
 let g:indent_guides_enable_on_vim_startup = 1
 " NERDTreeの初期画面設定
