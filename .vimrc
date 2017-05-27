@@ -250,11 +250,6 @@ endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^.\t]\.\w*'
 " jedi settings end
 
-" molokai設定
-" colorscheme molokai
-"カラースキーマを設定
-"let g:molokai_original = 1
-"let g:rehash256 = 1
 " gruvbox設定
 colorscheme gruvbox
 " solalized設定
