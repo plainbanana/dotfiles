@@ -3,6 +3,7 @@ set ruler "ルーラーの表示
 set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
+set hlsearch
 syntax on
 set tabstop=4 "インデントをスペース4つ分に設定
 set autoindent "オートインデント
@@ -222,7 +223,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
@@ -254,10 +255,6 @@ let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^.\t]\.\w*'
 
 " gruvbox設定
 colorscheme gruvbox
-"" solalized設定
-"syntax enable
-"set background=dark
-"colorscheme solarized
 " インデント可視化
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
@@ -270,21 +267,42 @@ let g:eskk#large_dictionary = {
   \}
 let g:eskk#enable_completion = 1
 let g:eskk#egg_like_newline = 1
+" ALEの結果をステータスラインに表示する
+let g:ale_statusline_format = ['x %d', '! %d', '⬥ ok']
 " NERDTreeの初期画面設定
 let g:NERDTreeShowBookmarks=1
 " autocmd vimenter * NERDTree
 " ファイル名が指定されて起動したときはNerdTreeを表示しない
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ 'component': {
+"       \   'readonly': '%{&readonly?"x":""}',
+"       \   'char_counter' : '%', 
+"       \   'ale' : 'ALEStatus'
+"       \ },
+"       \ 'separator': { 'left': '', 'right': '' },
+"       \ 'subseparator': { 'left': '|', 'right': '|' }
+"       \ }
 let g:lightline = {
       \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"x":""}',
-      \   'char_counter' : '%' 
+      \ 'active': {
+      \   'left' : [
+      \    ['mode', 'paste'],
+      \    ['readonly', 'filename', 'modified'],
+      \    ['ale'],
+      \  ]
+      \ },
+      \ 'component_function': {
+      \   'ale': 'ALEStatus'
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
+function! ALEStatus()
+  return ALEGetStatusLine()
+endfunction
 " 未取得のbundleがあれば取得する
 " .vimrcの最後に記述する
 if(!empty(neobundle#get_not_installed_bundle_names()))
