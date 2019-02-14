@@ -19,6 +19,7 @@ set background=dark
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set mouse=a " マウスを有効
 
 "#####検索設定#####
 set ignorecase "大文字/小文字の区別なく検索する
