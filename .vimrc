@@ -301,9 +301,9 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '|', 'right': '|' }
       \ }
-function! ALEStatus()
-  return ALEGetStatusLine()
-endfunction
+" function! ALEStatus()
+"   return ALEGetStatusLine()
+" endfunction
 " 未取得のbundleがあれば取得する
 " .vimrcの最後に記述する
 if(!empty(neobundle#get_not_installed_bundle_names()))

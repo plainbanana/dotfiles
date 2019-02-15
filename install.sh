@@ -1,4 +1,4 @@
 #!/bin/bash
-ln -s .zshrc ~/
-ln -s .vimrc ~/
-ln -s .gvimrc ~/
+ln -s $(pwd)/.zshrc ~/
+ln -s $(pwd)/.vimrc ~/
+ln -s $(pwd)/.gvimrc ~/
