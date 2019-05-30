@@ -31,4 +31,6 @@ alias date-file='date "+%Y%m%d_%H%M%S"'
 # source <(kubectl completion zsh)
 
 # load privates files
-. ~/dotfiles/privatefiles/$(hostname)/*
+while read -d $'\0' file; do
+    source ${file}
+done < <(find ~/dotfiles/privatefiles/$(hostname) -mindepth 1 -maxdepth 1 -print0)
