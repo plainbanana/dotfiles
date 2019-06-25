@@ -32,3 +32,5 @@ alias date-file='date "+%Y%m%d_%H%M%S"'
 
 # load privates files
 . ~/dotfiles/privatefiles/$(hostname)/*
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
