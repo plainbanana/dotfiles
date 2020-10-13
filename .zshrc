@@ -1,4 +1,4 @@
-export ZSH=~/.oh-my-zsh
+export ZSH=~/.ohmyzsh
 export GOPATH=$HOME/go
 ZSH_THEME="gnzh"
 plugin=(git ruby rails)
