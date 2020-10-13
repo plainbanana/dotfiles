@@ -7,10 +7,12 @@ source $ZSH/oh-my-zsh.sh
 # Setup ssh-agent
 if [ -f ~/.ssh-agent ]; then
     . ~/.ssh-agent
+    echo "set up ssh-agent"
 fi
 if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
     ssh-agent > ~/.ssh-agent
     . ~/.ssh-agent
+    echo "re-set up ssh-agent"
 fi
 
 export PATH="$PYENV_ROOT/bin:$PATH"
