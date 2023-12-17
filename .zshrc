@@ -6,7 +6,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Setup ssh-agent
 if [ -f ~/.ssh-agent ]; then
-    . ~/.ssh-agent
+  # If the set pid is already used by an other program, ssh-agent will not be raunched.
+  # You need recreating "~/.ssh-agent".
+  . ~/.ssh-agent
     echo "set up ssh-agent"
 fi
 if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
