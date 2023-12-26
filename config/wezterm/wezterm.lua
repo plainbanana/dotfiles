@@ -27,7 +27,7 @@ local config = {
 
 config.font = wezterm.font_with_fallback {
   {
-    family = 'JetBrains Mono',
+    family = 'UDEV Gothic 35NFLG',
     weight = 'Medium',
     harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
   },
