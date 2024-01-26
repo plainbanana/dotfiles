@@ -23,6 +23,7 @@ local config = {
   font_size = 15.5,
   color_scheme = 'Solarized (light) (terminal.sexy)',
   adjust_window_size_when_changing_font_size = false,
+  text_blink_rate = 0,
 }
 
 config.font = wezterm.font_with_fallback {
